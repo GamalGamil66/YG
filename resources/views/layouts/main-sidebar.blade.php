@@ -98,7 +98,7 @@
                         </ul>
                     </li>
 
-                    <!-- Accounts-->
+                    {{-- <!-- Accounts-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Accounts-menu">
                             <div class="pull-left"><i class="fas fa-money-bill-wave-alt"></i><span
@@ -198,7 +198,7 @@
                             <li> <a href="themify-icons.html">Themify icons</a> </li>
                             <li> <a href="weather-icon.html">Weather icons</a> </li>
                         </ul>
-                    </li>
+                    </li> --}}
 
                 </ul>
             </div>

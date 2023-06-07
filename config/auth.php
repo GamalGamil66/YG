@@ -40,6 +40,22 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'citizen-api' => [
+            'driver' => 'jwt',
+            'provider' => 'citizens',
+        ],
+        'aqel-api' => [
+            'driver' => 'jwt',
+            'provider' => 'aqels',
+        ],
+        'delegate-api' => [
+            'driver' => 'jwt',
+            'provider' => 'delegates',
+        ],
+        'delivery-api' => [
+            'driver' => 'jwt',
+            'provider' => 'delivery_mans',
+        ],
     ],
 
     /*
@@ -63,6 +79,22 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'citizens' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Citizen::class,
+        ],
+        'aqels' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Aqel::class,
+        ],
+        'delegates' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Delegate::class,
+        ],
+        'delivery_mans' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\DeliveryMan::class,
         ],
 
         // 'users' => [
