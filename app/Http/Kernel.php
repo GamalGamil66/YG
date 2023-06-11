@@ -64,6 +64,13 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'auth.guard'  => AssignGuard::class
+        'auth.guard'  => AssignGuard::class,
+        'manager.guest' => \App\Http\Middleware\ManagerRedirectIfAuthenticated::class,
+        'manager.auth' => \App\Http\Middleware\ManagerAuthenticate::class,
+        'super_manager.guest' => \App\Http\Middleware\SuperManagerRedirectIfAuthenticated::class,
+        'super_manager.auth' => \App\Http\Middleware\SuperManagerAuthenticate::class,
+        'my_controller.guest' => \App\Http\Middleware\ControllerRedirectIfAuthenticated::class,
+        'my_controller.auth' => \App\Http\Middleware\ControllerAuthenticate::class,
+
     ];
 }

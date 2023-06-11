@@ -7,14 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 
-class Manager extends Authenticatable
+class MyController extends Authenticatable
 {
     use HasFactory;
     protected $guarded=[];
     public $timestamps = false;
+    protected $table = 'controllers';
 
-    public function Directorates()
-    {
-        return $this->belongsTo('App\Models\Directorates', 'directorate_id');
-    }
 }

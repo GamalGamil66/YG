@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreManager;
 use App\Repository\ManagerRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ManagerController extends Controller
 {
@@ -63,5 +64,28 @@ class ManagerController extends Controller
     public function destroy(Request $request)
     {
         return $this->Manager->DeleteManager($request);
+    }
+
+    public function authenticate(Request $request) {
+
+        $this->validate($request,[
+            'ssn' => 'required',
+            'password' => 'required'
+        ]);
+
+        if (Auth::guard('manager')->attempt(['ssn' => $request->ssn, 'password' => $request->password],$request->get('remember'))) {
+
+            return redirect()->route('manager.dashboard');
+
+        } else {
+            session()->flash('error','Either SSN/Password is incorrect');
+            return back()->withInput($request->only('ssn'));
+        }
+
+    }
+
+    public function logout() {
+        Auth::guard('manager')->logout();
+        return redirect()->route('manager.login');
     }
 }

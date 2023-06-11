@@ -40,6 +40,18 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'manager' => [
+            'driver' => 'session',
+            'provider' => 'managers',
+        ],
+        'super_manager' => [
+            'driver' => 'session',
+            'provider' => 'super_managers',
+        ],
+        'my_controller' => [
+            'driver' => 'session',
+            'provider' => 'my_controllers',
+        ],
         'citizen-api' => [
             'driver' => 'jwt',
             'provider' => 'citizens',
@@ -79,6 +91,18 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'managers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Manager::class,
+        ],
+        'super_managers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\SuperManager::class,
+        ],
+        'my_controllers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\MYController::class,
         ],
         'citizens' => [
             'driver' => 'eloquent',

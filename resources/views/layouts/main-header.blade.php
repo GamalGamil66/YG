@@ -113,10 +113,10 @@ header start-->
                     <div class="media">
                         <div class="media-body">
                             <h5 class="mt-0 mb-0">
-{{--                                {{ Auth::user()->name }}--}}Kahhsn
+                                {{ Auth::user()->name }}
                             </h5>
                             <span>
-{{--                                {{ Auth::user()->email }}--}}lallall
+                                {{ Auth::user()->ssn }}
                             </span>
                         </div>
                     </div>
@@ -128,6 +128,19 @@ header start-->
                 <a class="dropdown-item" href="#"><i class="text-dark ti-layers-alt"></i>Projects <span
                         class="badge badge-info">6</span> </a>
                 <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#"><i class="text-info ti-settings"></i>Settings</a>
+                @if(auth('manager')->check())
+                    <form method="GET" action="{{ route('manager.logout') }}">
+                        @elseif(auth('super_manager')->check())
+                            <form method="GET" action="{{ route('super_manager.logout') }}">
+                                @elseif(auth('my_controller')->check())
+                                    <form method="GET" action="{{ route('my_controller.logout') }}">
+                                        @else
+                                            <form method="GET" action="{{ route('logout') }}">
+                                                @endif
+                                                @csrf
+                                                <a class="dropdown-item" href="#" onclick="event.preventDefault();this.closest('form').submit();"><i class="bx bx-log-out"></i>تسجيل الخروج</a>
+                                            </form>
 {{--                <a class="dropdown-item" href="#"><i class="text-info ti-settings"></i>Settings</a>--}}
 {{--                <a class="dropdown-item" href="--}}{{-- route('logout') --}}{{--" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="text-danger ti-unlock"></i>--}}
 {{--                    {{ __('Sidebar_trans.Logoff') }}--}}{{--Logoff--}}
